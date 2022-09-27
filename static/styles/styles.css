@@ -1,0 +1,38 @@
+p {
+  margin: 0 !important;
+}
+
+.nav-user-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-user-container a {
+  margin-left: 10px;
+}
+
+.nav-user-container a:hover {
+  text-decoration: underline;
+}
+
+.nav-background {
+  background: hsla(261, 96%, 9%, 0.9);
+  color: aliceblue;
+}
+
+.nav-background a {
+  text-decoration: none;
+  text-transform: none;
+  color: inherit;
+}
+
+.nav-background a:hover {
+  color: antiquewhite;
+}
+
+.undesigned-link {
+  text-decoration: none;
+  color: inherit;
+}

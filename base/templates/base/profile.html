@@ -1,0 +1,17 @@
+{%extends 'main.html'%}
+{%block content%}
+<div class="container" style="padding-top: 60px;">
+    <div class="row">
+        <div class="col-md-2">
+            {%include 'base/topics_component.html'%}
+        </div>
+        <div class="col-md-8">
+            <h3>{{user.username}}</h3>
+            {%include 'base/feed_component.html'%}
+        </div>
+        <div class="col-md-2">
+            {%include 'base/activity_component.html'%}
+        </div>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,9 @@
+{%load static%}
+
+<h4 class="mb-4">Browse Topics</h4>
+<div class="d-flex flex-column">
+    <a class="undesigned-link" href="{% url 'home' %}">All</a>
+    {% for topic in topics %}
+    <a class="undesigned-link" href="{% url 'home' %}?q={{topic.name}}" role="button" class="my-link">{{topic.name}}</a>
+    {% endfor %}
+</div>

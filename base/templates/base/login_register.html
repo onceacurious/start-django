@@ -1,0 +1,159 @@
+{% extends 'main.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<div class="container-fluid text-center" style="padding-top: 60px;">
+
+    {%if page == "login"%}
+    <!-- Login Form -->
+    <div style="width: 100%;max-width: 330px;padding: 15px;margin: auto;">
+
+        <form method="POST" class="d-flex flex-column justify-content-between" style="min-height: 450px;">
+            {%csrf_token%}
+            <h1 class=" h3 mb-3 fw-normal">Please sign in</h1>
+
+            <div class="form-floating">
+                <input name="username" type="text" class="form-control" id="signinUsername" placeholder="Enter Username"
+                    required>
+                <label for="signinUsername">Username</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="signinPassword" placeholder="Enter Password"
+                    name="password" required>
+                <label for="signinPassword">Password</label>
+                <div class="form-check pt-1" style="text-align: left !important;">
+                    <input class="form-check-input" type="checkbox" id="signinPasswordShow" onchange="showPassword()">
+                    <label class="form-check-label" for="signinPasswordShow">
+                        Show password
+                    </label>
+                </div>
+            </div>
+
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+            <p>Haven't Sign-up yet?</p>
+            <a class="btn btn-secondary" type="button" role="button" href="{%url 'register'%}">Sign up</a>
+        </form>
+
+    </div>
+
+    {%else%}
+    <!-- Registration Form -->
+    <div class="container-fluid d-flex flex-column align-items-center text-start">
+
+
+        <form action="" method="POST" class="form" style="max-width: 400px;">
+            {%csrf_token%}
+            {%bootstrap_form form%}
+            <input class="btn btn-primary" type="submit" value="Register">
+        </form>
+        <p>Already signed up?</p>
+        <a href="{% url 'login' %}">Sign in</a>
+    </div>
+
+
+    <!-- DO NOT DELETE -->
+    <!-- <div style="width: 100%;max-width: 330px;padding: 15px;margin: auto;">
+
+        <form method="POST" class="d-flex flex-column justify-content-between" style="min-height: 500px;">
+            {%csrf_token%}
+            <h1 class=" h3 mb-3 fw-normal">Please sign up</h1>
+
+            <div class="form-floating">
+                <input name="signupUsername" type="text" class="form-control" id="signupUsername"
+                    placeholder="Enter Username" required>
+                <label for="signupUsername">Username</label>
+            </div>
+
+            <div class="form-floating">
+                <input type="password" class="form-control" id="signupPassword1" placeholder="Enter Password"
+                    name="signupPassword1" onchange="passwordValidation()" required>
+                <label for="singupPassword1">Password</label>
+                <div class="form-check pt-1" style="text-align: left !important;">
+                    <input class="form-check-input" type="checkbox" id="signupPassword1Show" onchange="showPassword1()">
+                    <label class="form-check-label" for="signupPassword1Show">
+                        Show password
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-floating">
+                <input type="password" class="form-control" id="signupPassword2" placeholder="Confirm Password"
+                    name="signupPassword2" onblur="passwordValidation()" required>
+                <label for="singupPassword2">Confirm Password</label>
+                <small class="text-danger" style="display: none; text-align: left !important;" id="notMatch"></small>
+                <div class="form-check pt-1" style="text-align: left !important;">
+                    <input class="form-check-input" type="checkbox" id="signupPassword2Show" onchange="showPassword2()">
+                    <label class="form-check-label" for="signupPassword2Show">
+                        Show password
+                    </label>
+                </div>
+            </div>
+
+            <button class="w-100 btn btn-lg btn-primary" type="submit" id="signupBtn">Sign up</button>
+            <p>Already Sign-up?</p>
+            <a class="btn btn-secondary" type="button" role="button" href="{%url 'login'%}">Sign in</a>
+        </form>
+
+    </div> -->
+    {%endif%}
+</div>
+
+<script>
+
+    function passwordValidation() {
+        var password = document.getElementById('signupPassword1').value;
+        var confirm_pass = document.getElementById('signupPassword2').value;
+        var invalid = document.getElementById('notMatch');
+        var signup = document.getElementById('signupBtn');
+
+        if (password != confirm_pass) {
+            invalid.style.display = "block";
+            invalid.innerHTML = 'Passwords does not match'
+            signup.disabled = true;
+        }
+
+        if (password == confirm_pass || confirm_pass == '') {
+            invalid.style.display = "none"
+            signup.disabled = false;
+        }
+    };
+
+    function showPassword1() {
+        var check = document.getElementById('signupPassword1Show');
+        var password = document.getElementById('signupPassword1');
+
+        if (check.checked == 1) {
+            password.type = 'text';
+        }
+        else {
+            password.type = 'password';
+        }
+    };
+
+    function showPassword2() {
+        var check = document.getElementById('signupPassword2Show');
+        var password = document.getElementById('signupPassword2');
+
+        if (check.checked == 1) {
+            password.type = 'text';
+        }
+        else {
+            password.type = 'password';
+        }
+
+    };
+
+    function showPassword() {
+        var check = document.getElementById('signinPasswordShow');
+        var password = document.getElementById('signinPassword');
+
+        if (check.checked == 1) {
+            password.type = 'text';
+        }
+        else {
+            password.type = 'password';
+        }
+    };
+
+</script>
+{% endblock %}

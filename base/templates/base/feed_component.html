@@ -1,0 +1,28 @@
+{%load static%}
+
+<div class="accordion accordion-flush" id="roomAccordion">
+    {% for room in rooms %}
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="{{room.id}}">
+            <button class="accordion-button collapsed position-relative" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-{{room.id}}" aria-expanded="false" aria-controls="flush-{{room.id}}">
+                {{room.name}}
+            </button>
+        </h2>
+        <div id="flush-{{room.id}}" class="accordion-collapse collapse" aria-labelledby="{{room.id}}"
+            data-bs-parent="#roomAccordion">
+            <div class="accordion-body d-flex flex-column">
+                <a class="undesigned-link" type="text" href="{% url 'room' room.id %}">{{room.description}}</a>
+                <a class="undesigned-link" type="text" href="{%url 'user-profile' room.host.id%}">@{{room.host}}</a>
+                {% if request.user == room.host %}
+                <div class="btn-group btn-group-sm w-25" role="group" aria-label="Room buttons">
+                    <a href="{% url 'update-room' room.id %}" type="button" class="btn btn-secondary">Edit</a>
+                    <a href="{% url 'delete-room' room.id %}" type="button" class="btn btn-danger">Delete</a>
+                </div>
+                {%endif%}
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

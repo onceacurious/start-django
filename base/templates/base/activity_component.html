@@ -1,0 +1,22 @@
+{%load static%}
+
+<h4>Activity Feed</h4>
+{% for message in room_messages %}
+<div class="card border-primary mb-3" style="max-width: 18rem;">
+    <p class="card-header">Reply to "{{message.room}}"</p>
+    <div class="card-body">
+        <div class="d-flex flex-column">
+            <p class="card-text">{{message.body}}</p>
+            <small class="card-text">
+                <a type="text" class="undesigned-link" href="{% url 'user-profile' message.user.id%}">
+                    @{{message.user}}
+                </a>
+                {{message.created | timesince}}
+            </small>
+        </div>
+        {%if request.user == message.user%}
+        <a class="btn btn-outline-danger btn-sm mt-2" href="{% url 'delete-message' message.id%}">Delete</a>
+        {%endif%}
+    </div>
+</div>
+{%endfor%}
