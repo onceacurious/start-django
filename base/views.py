@@ -84,6 +84,7 @@ def registerPage(request):
     return render(request, 'base/login_register.html', context)
 
 
+@login_required(login_url='login')
 def home(request):
     q = request.GET.get('q') if request.GET.get('q') != None else ''
 
