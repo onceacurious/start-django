@@ -10,11 +10,6 @@ from django.db.models import Q
 from .models import Room, Topic, Message
 from .forms import RoomForm
 
-# rooms = [
-#     {"id": 1, "name": "let's learn python"},
-#     {"id": 2, "name": "let's learn django"},
-#     {"id": 3, "name": "let's learn django-rest-framework"},
-# ]
 
 response = {
     "unauthorized": "Unauthorized action",
@@ -175,7 +170,7 @@ def deleteRoom(request, pk):
     room = Room.objects.get(id=pk)
 
     if request.user != room.host:
-        return HttpResponse(r["unauthorized"])
+        return HttpResponse(response["unauthorized"])
 
     if request.method == "POST":
         room.delete()
