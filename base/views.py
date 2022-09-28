@@ -9,7 +9,6 @@ from django.db.models import Q
 
 from .models import Room, Topic, Message
 from .forms import RoomForm
-import json
 
 # rooms = [
 #     {"id": 1, "name": "let's learn python"},
@@ -17,8 +16,10 @@ import json
 #     {"id": 3, "name": "let's learn django-rest-framework"},
 # ]
 
-f = open('response.json')
-r = json.load(f)
+response = {
+    "unauthorized": "Unauthorized action",
+    "signup_error": "Unhandled error occurred while user registration"
+}
 
 
 def loginPage(request):
@@ -65,7 +66,7 @@ def registerPage(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, r["signup_error"])
+            messages.error(request, response["signup_error"])
     # form = MyUserCreationForm()
 
     # if request.method == "POST":
@@ -159,7 +160,7 @@ def updateRoom(request, pk):
     form = RoomForm(instance=room)
 
     if request.user != room.host:
-        return HttpResponse(r["unauthorized"])
+        return HttpResponse(response["unauthorized"])
 
     if request.method == "POST":
         form = RoomForm(request.POST, instance=room)
@@ -187,7 +188,7 @@ def deleteMessage(request, pk):
     message = Message.objects.get(id=pk)
 
     if request.user != message.user:
-        return HttpResponse(r["unauthorized"])
+        return HttpResponse(response["unauthorized"])
 
     if request.method == "POST":
         message.delete()
