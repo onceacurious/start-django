@@ -9,6 +9,16 @@
         <div class="col-lg-10">
             <h4>Conversation</h4>
             <hr>
+            <!-- Comment Form -->
+            {%if request.user.is_authenticated%}
+            <div class="">
+                <form action="" method="POST">
+                    {%csrf_token%}
+                    <input type="text" name="body" placeholder="Write your message here..." />
+                </form>
+            </div>
+            <!-- End of Comment Form -->
+            <hr>
             {%for message in room_messages%}
             <div class="d-flex flex-column">
                 <small>@{{message.user}}</small>
@@ -22,14 +32,7 @@
             </div>
             {%endfor%}
 
-            <!-- Comment Form -->
-            {%if request.user.is_authenticated%}
-            <div class="">
-                <form action="" method="POST">
-                    {%csrf_token%}
-                    <input type="text" name="body" placeholder="Write your message here..." />
-                </form>
-            </div>
+
         </div>
         <div class="col-lg-2">
             <h4>Participants</h4>
