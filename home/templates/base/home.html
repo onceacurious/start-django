@@ -1,0 +1,36 @@
+{%extends 'main.html'%}
+{% block content %}
+{% load static %}
+<main class="flex-shrink-0">
+    <div>
+        <!-- Hero Section -->
+        {% include 'base/hero.html'%}
+        <!-- Sub Hero Section -->
+        <section class="lhi_pabpnq" id="heroFeature">
+            <div class="container absolute" id="heroFeatureContainer">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-md-5 g-3">
+                    <div class="col">
+                        <div class="yng_ctkeok">
+                            <div class="xdk_lkilzr bring_value"></div>
+                            <p>Bring Value To Your Business</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="yng_ctkeok">
+                            <div class="xdk_lkilzr application"></div>
+                            <p>Device Compatibility</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="yng_ctkeok">
+                            <div class="xdk_lkilzr modern"></div>
+                            <p>Modern & Sleek Design</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {%include 'base/product.html'%}
+    </div>
+</main>
+{%endblock%}

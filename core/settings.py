@@ -32,6 +32,7 @@ INSTALLED_APPS = [
 
     # My Apps
     "base.apps.BaseConfig",
+    "home.apps.HomeConfig",
 
     # Third-party Apps
     "django_bootstrap5",
