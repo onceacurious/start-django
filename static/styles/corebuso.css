@@ -302,7 +302,7 @@ html {
 
 .gah_ilnfff {
   color: var(--color4-100);
-  background-color: var(--color3-100) !important;
+  background: var(--color3-100) !important;
   cursor: pointer !important;
   position: relative;
   z-index: 1;
