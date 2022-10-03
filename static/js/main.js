@@ -4,6 +4,8 @@ const heroSection = document.getElementById("heroSection");
 const nav = document.getElementById("navBar");
 const prod = document.getElementById("productContainer");
 
+const ulNavBar = document.getElementById("navCollBtn");
+
 const heroOptions = {
   root: null,
   threshold: 0.75,
@@ -15,11 +17,11 @@ const heroObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       heroFeatureCon.className = "container absolute";
       heroSection.className = "mqh_bsspwi hero-inner-shadow";
-      nav.className = "container fle_cajrzm";
+      nav.style.background = "transparent";
     } else {
       heroFeatureCon.className = "container relative";
       heroSection.className = "mqh_bsspwi hero-drop-shadow";
-      nav.className = "container fle_cajrzm nav-background";
+      nav.style.background = "#360c26";
     }
   });
 }, heroOptions);
@@ -43,3 +45,13 @@ const subHeroObserver = new IntersectionObserver((entries) => {
 });
 
 subHeroObserver.observe(heroFeatureCon);
+
+function navToggle() {
+  var classes = window.getComputedStyle(ulNavBar).backgroundColor;
+  // console.log(classes);
+  if (classes == "rgba(0, 0, 0, 0)") {
+    ulNavBar.style.backgroundColor = "#360c26";
+  } else {
+    ulNavBar.style.backgroundColor = "transparent";
+  }
+}
