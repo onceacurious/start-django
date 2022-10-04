@@ -1,0 +1,15 @@
+{% load static %}
+<div class="col">
+    {% include 'base/pages.html' %}
+    <span data-bs-toggle="tooltip" data-bs-title="Click me to show more">
+        <a type="button" class="card gah_ilnfff" data-bs-toggle="modal" data-bs-target="#webDevModal">
+            <img src="{{card.image_url}}" class="card-img-top" alt="{{card.alt}}" loading="lazy">
+            <div class="card-body text-center">
+                <h5 class="card-title">{{card.title | title}}</h5>
+            </div>
+            <span class="epy_twvghn">
+                PNG Preview
+            </span>
+        </a>
+    </span>
+</div>

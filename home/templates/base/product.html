@@ -5,91 +5,28 @@
         <div class="pricing-header pt-3 pb-1 pb-md-2 mx-auto text-center">
             <h1 class="display-4 fw-normal">Features</h1>
             <p class="fs-5">Featuring our modern and responsive pages</p>
+
+            <!-- Alert -->
+            <div class="alert alert-primary alert-dismissible fade show" role="alert" style="width: 50%; margin: auto;">
+                All image displayed were sample only. <strong>CTTO!</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         </div>
 
         <!-- Feature Album -->
         <div class="py-5">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 p-3">
-                    <div class="col">
-                        {%include 'base/web_dev_carousel.html'%}
-                        <span data-bs-toggle="tooltip" data-bs-title="Click me to show more">
-                            <a type="button" class="card gah_ilnfff" data-bs-toggle="modal"
-                                data-bs-target="#webDevModal">
-                                <img src="{%static 'images/cover.png'%}" class="card-img-top" alt="Cover Image"
-                                    loading="lazy">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">Cover</h5>
-                                </div>
-                                <span class="epy_twvghn">
-                                    PNG Preview
-                                </span>
-                            </a>
-                        </span>
-                    </div>
-                    <div class="col">
-                        <div class="card gah_ilnfff">
-                            <img src="https://picsum.photos/800/600?random=2" class="card-img-top" alt="..."
-                                loading="lazy">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Blog</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card gah_ilnfff">
-                            <img src="https://picsum.photos/800/600?random=3" class="card-img-top" alt="..."
-                                loading="lazy">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">About</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card gah_ilnfff">
-                            <img src="https://picsum.photos/800/600?random=4" class="card-img-top" alt="..."
-                                loading="lazy">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Contact</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card gah_ilnfff">
-                            <img src="https://picsum.photos/800/600?random=5" class="card-img-top" alt="..."
-                                loading="lazy">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Dashboard</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card gah_ilnfff">
-                            <img src="https://picsum.photos/800/600?random=6" class="card-img-top" alt="..."
-                                loading="lazy">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Pricing</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card gah_ilnfff">
-                            <img src="https://picsum.photos/800/600?random=7" class="card-img-top" alt="..."
-                                loading="lazy">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Signin</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card gah_ilnfff">
-                            <img src="https://picsum.photos/800/600?random=8" class="card-img-top" alt="..."
-                                loading="lazy">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Checkout</h5>
-                            </div>
-                        </div>
-                    </div>
+
+                    <!-- Product Card Section -->
+                    {% for card in cards %}
+                    {% include 'base/product_card.html' %}
+                    {% endfor %}
+
+                    <!-- For Twice display only -->
+                    {% for card in cards %}
+                    {% include 'base/product_card.html' %}
+                    {% endfor %}
 
                 </div>
             </div>

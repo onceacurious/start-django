@@ -322,12 +322,12 @@ html {
 }
 
 .epy_twvghn {
-  border-radius: 0.45em;
-  border: 2px solid var(--color4-50);
-  color: var(--color1-100);
+  border-radius: 0.25em;
+  /* border: 2px solid var(--color4-50); */
+  color: hsla(0, 0%, 20%, 0.9);
   font-weight: 600;
-  background-color: var(--color4-100);
-  padding: 0.125em;
+  background-color: hsla(0, 3%, 63%, 0.8);
+  padding: 0.312em;
   font-size: 1em;
   width: fit-content;
 
