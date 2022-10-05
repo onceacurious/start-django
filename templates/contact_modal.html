@@ -3,14 +3,15 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="contactModalLabel">COREBUSO</h5>
+                <h5 class="modal-title" id="contactModalLabel">COREBUSO Service Inquiry</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="row g-3 needs-validation" novalidate>
+                <form class="row g-3 needs-validation" method="POST" novalidate>
+                    {% csrf_token %}
                     <div class="mb-3">
                         <div class="form-floating">
-                            <input type="email" class="form-control" placeholder="Email Address"
+                            <input type="email" name="email" class="form-control" placeholder="Email Address"
                                 aria-label="Email Address" required />
                             <label for="floatingPassword">Email Address</label>
                             <div class="invalid-feedback">
@@ -18,11 +19,25 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="mb-3">
                         <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a massage here" id="message"
-                                style="height: 100px" required></textarea>
+                            <select class="form-select" name="type" id="serviceType" aria-label="Select service"
+                                required>
+                                <option selected>Please select service..</option>
+                                <option value="PR">Programming</option>
+                                <option value="DE">Designing</option>
+                                <option value="FI">Bookkeeping</option>
+                            </select>
+                            <label for="serviceType">Select service:</label>
+                            <div class="invalid-feedback">
+                                Please select a service
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <textarea class="form-control" name="message" placeholder="Leave a massage here"
+                                id="message" style="height: 100px" required></textarea>
                             <label for="message">Message</label>
                             <div class="invalid-feedback">
                                 Message must not be empty
@@ -31,7 +46,7 @@
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Contact Information"
+                            <input type="text" class="form-control" name="contact" placeholder="Contact Information"
                                 aria-label="Contact Information" />
                             <label for="floatingPassword">Contact Information</label>
                             <div id="contactInfoHelp" class="form-text">Please provide any contact info: Skype,

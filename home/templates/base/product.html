@@ -18,13 +18,8 @@
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 p-3">
 
-                    <!-- Product Card Section -->
                     {% for card in cards %}
-                    {% include 'base/product_card.html' %}
-                    {% endfor %}
-
-                    <!-- For Twice display only -->
-                    {% for card in cards %}
+                    {% include 'base/product_modal.html' %}
                     {% include 'base/product_card.html' %}
                     {% endfor %}
 

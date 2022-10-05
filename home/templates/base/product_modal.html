@@ -1,0 +1,60 @@
+{% load static %}
+{% load custom_tag %}
+<div class="modal fade modal-lg" id="{{card.object_id}}" tabindex="-1" aria-labelledby="{{card.object_id}}Label"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="{{card.object_id}}Label">{{card.title | title}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+
+                    <!-- MODAL BODY -->
+                    <div id="{{card.object_id}}Carousel" class="carousel slide" data-bs-ride="false"
+                        data-bs-touch="true" data-wrap="false">
+
+                        <div class="carousel-inner">
+                            {% for page in pages %}
+                            {% if page.product.id == card.id %}
+
+                            <div
+                                class="{% if page.active %} carousel-item active  {% else %} carousel-item {% endif %}">
+                                <img src="{{page.image_url}}" class="d-block w-100" alt="...">
+                                <div
+                                    class="carousel-caption d-none d-md-block bg-dark bg-gradient p-2 text-light bg-opacity-50">
+                                    <h5>{{page.title | title}}</h5>
+                                    <p>{{page.description}}.</p>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#{{card.object_id}}Carousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#{{card.object_id}}Carousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip"
+                        data-bs-title="You will be directed to netlify">
+                        <button type="button" class="btn btn-primary">Online
+                            Preview</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
