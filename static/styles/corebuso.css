@@ -59,6 +59,18 @@ html {
   );
 }
 
+.alert-fixed {
+  position: fixed;
+  top: 5em;
+  left: 0;
+  left: auto;
+  right: 0.75em;
+  z-index: 9999;
+  /* border-radius: 0; */
+  width: fit-content;
+  opacity: 0.8;
+}
+
 /* CUSTOM BUTTON */
 
 .my-button-primary {
