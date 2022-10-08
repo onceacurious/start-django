@@ -1,6 +1,9 @@
-{%load static%}
-<footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
-    <p class="col-md-4 mb-0">© 2022 Corebuso
+{% load static %}
+<footer class="d-flex flex-wrap justify-content-between align-items-center p-4 mt-4">
+    <p class="col-md-4 mb-0">
+        <a href="{% url 'home' %}" type="text" class="nav-link">
+            © 2022 Corebuso
+        </a>
     </p>
 
 

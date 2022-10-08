@@ -1,7 +1,10 @@
 {%extends 'main.html'%}
+{% block title %}COREBUSO{% endblock %}
 {% block content %}
 {% load static %}
-<main class="flex-shrink-0">
+{% include 'base/home_nav.html' %}
+{% include 'base/contact_modal.html' %}
+<main class="flex-shrink-0 d-flex flex-column h-100 dwv_swxxie">
     <div>
         <!-- Hero Section -->
         {% include 'base/hero.html'%}
@@ -32,5 +35,6 @@
         </section>
         {%include 'base/product.html'%}
     </div>
+    {% include 'base/footer.html' %}
 </main>
 {%endblock%}

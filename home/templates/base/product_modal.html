@@ -7,6 +7,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="{{card.object_id}}Label">{{card.title | title}}</h5>
+                    <h4>{{page.title}}</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -49,10 +50,9 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
                     <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip"
-                        data-bs-title="Button disabled. No online preview available yet">
+                        data-bs-title="You will be redirected to Dashboard">
                         <!-- data-bs-title="You will be directed to netlify"> -->
-                        <a href="https://corebuso-app.netlify.app/" target="_blank" type="button"
-                            class="btn btn-primary disabled" aria-disabled="true">Online
+                        <a href="{%url 'dashboard'%}" target="_blank" type="button" class="btn btn-primary">Online
                             Preview</a>
                     </span>
                 </div>

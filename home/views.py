@@ -12,6 +12,8 @@ def home(request):
     pages = ProductPage.objects.all()
     form = InquiryRoom()
 
+    # page = ProductPage.objects.filter(product=1)
+
     if request.method == "POST":
         form = InquiryRoom(request.POST)
         print(form)
@@ -22,3 +24,9 @@ def home(request):
 
     context = {"cards": cards, "pages": pages, "form": form}
     return render(request, "base/home.html", context)
+
+
+# def page_view(request, id=None):
+#     page = ProductPage.objects.filter(product=id)
+#     context = {"page": page}
+#     return render(request, "base/home.html", context)

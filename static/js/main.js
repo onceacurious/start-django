@@ -28,24 +28,6 @@ const heroObserver = new IntersectionObserver((entries) => {
 
 heroObserver.observe(heroSection);
 
-const heroSubOptions = {
-  root: null,
-  threshold: 0,
-  rootMargin: "-20px",
-};
-
-const subHeroObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      prod.className = "sup_kzezbz";
-    } else {
-      prod.className = "sup_kzezbz margin-top";
-    }
-  });
-});
-
-subHeroObserver.observe(heroFeatureCon);
-
 function navToggle() {
   var classes = window.getComputedStyle(ulNavBar).backgroundColor;
   // console.log(classes);
