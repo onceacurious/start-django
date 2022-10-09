@@ -1,5 +1,5 @@
 {% extends 'base/dashboard_home.html' %}
-{% block title %}Dashboard | COREBUSO{% endblock%}
+{% block title %}Dashboard - Inquiry | COREBUSO{% endblock%}
 {% load static %}
 {% block content %}
 <div class="home-container">
@@ -7,7 +7,9 @@
     <div class="container">
         <main class="">
             <section class="dashboard-section">
-                <h4>Dashboard</h4>
+                {% for inquiry in inquiries %}
+                <h4>{{inquiry.email}}</h4>
+                {% endfor %}
             </section>
         </main>
         {% include 'base/footer.html' %}

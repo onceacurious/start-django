@@ -43,7 +43,6 @@ class ProductPage(models.Model):
     def __str__(self):
         return self.title
 
-
 class Inquiry(models.Model):
     class ServiceChoices(models.TextChoices):
         PROGRAMMING = 'PR', _('Programming')
