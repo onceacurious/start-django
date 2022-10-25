@@ -6,12 +6,13 @@
         </a>
     </p>
 
-
+    {% if not url_logger %}
     <a target="_blank" href="https://www.linkedin.com/in/francis-deo-aurelio-05a380174/" data-bs-toggle="tooltip"
         data-bs-title="Created by: Francis Deo Aurelio. Click to open linkedin profile"
         class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
         <img src="{% static 'images/corebuso_brand.png'%}" style="width: 4em;" alt="Corebuso band">
     </a>
+    {% endif %}
 
     <ul class="nav col-md-4 justify-content-end">
         <li class="nav-item"><a href="{% url 'home' %}" class="nav-link px-2">Home</a></li>

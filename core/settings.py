@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     "base.apps.BaseConfig",
     "home.apps.HomeConfig",
     "dashboard.apps.DashboardConfig",
+    "product.apps.ProductConfig",
+    "inquiry.apps.InquiryConfig",
 
     # Third-party Apps
     "django_bootstrap5",
